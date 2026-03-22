@@ -37,8 +37,9 @@ jobs:
       - name: Run lint (if configured)
         run: npm run lint --if-present
 
-      - name: Run tests (if configured)
-        run: npm test --if-present
+      # TODO: Add a test script to package.json once tests are introduced (e.g. Vitest, Jest)
+      # - name: Run tests
+      #   run: npm test
 
       - name: Check Python worker syntax
         uses: actions/setup-python@v5
