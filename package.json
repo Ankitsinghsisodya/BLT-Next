@@ -8,7 +8,7 @@
     "db:init": "wrangler d1 execute blt-database --local --file=./schema.sql",
     "worker:deploy": "wrangler deploy",
     "pages:deploy": "npm run build && wrangler pages deploy .",
-    "lint": "echo 'Linting not configured'",
+    "lint": "eslint src/**/*.js",
     "setup": "npm install"
   },
   "repository": {
@@ -30,7 +30,9 @@
     "url": "https://github.com/OWASP-BLT/BLT-Next/issues"
   },
   "homepage": "https://github.com/OWASP-BLT/BLT-Next#readme",
+  "type": "module",
   "devDependencies": {
+    "eslint": "^9.39.4",
     "wrangler": "^4.67.0"
   },
   "engines": {
