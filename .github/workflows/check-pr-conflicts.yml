@@ -3,6 +3,7 @@ name: Check PR Conflicts
 # Uses pull_request_target so it runs with base repo permissions for forked PRs.
 # SECURITY: We do NOT check out or execute PR code. We only use the GitHub API.
 on:
+  workflow_dispatch:
   pull_request_target:
     types:
       - opened
@@ -14,6 +15,10 @@ permissions:
   contents: read
   pull-requests: write
   issues: write
+
+concurrency:
+  group: conflict-check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   check_conflicts:
